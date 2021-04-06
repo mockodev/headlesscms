@@ -6,7 +6,8 @@
 .pnp.js
 
 #api-credentials
-.env.development
+.env
+
 
 # testing
 /coverage
