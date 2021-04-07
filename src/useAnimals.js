@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { client } from "./client";
+import PropTypes from "prop-types";
 
 const getAnimal = (animal) => ({
   name: animal.fields.name,
@@ -17,6 +18,7 @@ function useAnimals() {
 
   useEffect(() => {
     client.getEntries().then((response) => {
+      console.log(response.items);
       const newAnimals = response.items.map((item) => getAnimal(item));
       setAnimals(newAnimals);
     });

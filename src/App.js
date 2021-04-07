@@ -1,7 +1,6 @@
 import "./App.css";
 import useAnimals from "./useAnimals";
 import React, { useState } from "react";
-//import { Container, Row, Col } from "reactstrap";
 import {
   Button,
   ButtonGroup,
@@ -17,6 +16,7 @@ import {
 } from "reactstrap";
 import AnimalsCarousel from "./components/AnimalsCarousel";
 import "bootstrap/dist/css/bootstrap.css";
+import YoutubeEmbed from "./components/YoutubeEmbed";
 
 function App() {
   const animals = useAnimals();
@@ -31,6 +31,7 @@ function App() {
         <header>
           <div className="wrapper"></div>
           <span>Astonishing Animals</span>
+          <YoutubeEmbed embedId="rokGy0huYEA" />
         </header>
         <main className="Animal">
           <div className="wrapper">
@@ -55,7 +56,7 @@ function App() {
                     toggle={toggle}
                   ></ModalHeader>
                   <ModalBody className="modal__body row">
-                    <AnimalsCarousel animals={animals} />
+                    
                   </ModalBody>
                   <ModalFooter>
                     <Button color="secondary" onClick={toggle}>
