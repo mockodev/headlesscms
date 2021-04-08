@@ -50,7 +50,7 @@ function AnimalsCarousel({ animals }) {
   };
 
   console.log(animals);
-  const slides = animals.map((item) => {
+  const slides = items.map((item) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
@@ -58,7 +58,10 @@ function AnimalsCarousel({ animals }) {
         key={item.src}
       >
         <img src={"https:" + item.img} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <CarouselCaption
+          captionText={item.caption}
+          captionHeader={item.caption}
+        />
       </CarouselItem>
     );
   });

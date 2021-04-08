@@ -9,8 +9,8 @@ const getAnimal = (animal) => ({
     url: thumb.fields.file.url,
     title: thumb.fields.title,
   })),
-  crop: animal.fields.image.fields.file.url + "?w=300&h=200&fit=crop",
-  img: animal.fields.image.fields.file.url + "?w=400&h=300&fit=fill",
+  crop: animal.fields.image?.fields.file.url + "?w=300&h=200&fit=crop",
+  img: animal.fields.image?.fields.file.url + "?w=400&h=300&fit=fill",
 });
 
 function useAnimals() {

@@ -21,9 +21,13 @@ import YoutubeEmbed from "./components/YoutubeEmbed";
 function App() {
   const animals = useAnimals();
   const [modal, setModal] = useState(false);
+  const [show, setShow] = useState(false);
   //console.log(animals);
 
-  const toggle = () => setModal(!modal);
+  const toggle = (option) => {
+    setShow(option);
+    setModal(!modal);
+  };
 
   return (
     <div className="App">
@@ -31,6 +35,7 @@ function App() {
         <header>
           <div className="wrapper"></div>
           <span>Astonishing Animals</span>
+          <AnimalsCarousel />
           <YoutubeEmbed embedId="rokGy0huYEA" />
         </header>
         <main className="Animal">
@@ -43,8 +48,8 @@ function App() {
                     <h2>{animal.latinName}</h2>
                     <img src={animal.img} alt={animal.title} />
                     <ButtonGroup>
-                      <Button onClick={toggle}>Images</Button>
-                      <Button>Video</Button>
+                      <Button onClick={() => toggle("image")}>Images</Button>
+                      <Button onClick={() => toggle("video")}>Video</Button>
                     </ButtonGroup>
                   </div>
                 );
@@ -56,7 +61,8 @@ function App() {
                     toggle={toggle}
                   ></ModalHeader>
                   <ModalBody className="modal__body row">
-                    
+                    {show === "image" ? "" : ""}
+                    {show === "video" ? <YoutubeEmbed /> : ""}
                   </ModalBody>
                   <ModalFooter>
                     <Button color="secondary" onClick={toggle}>
