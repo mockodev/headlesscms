@@ -7,7 +7,7 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
-function AnimalsCarousel({ animals }) {
+function AnimalsCarousel({ animal }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -49,19 +49,19 @@ function AnimalsCarousel({ animals }) {
     setActiveIndex(newIndex);
   };
 
-  console.log(animals);
-  const slides = items.map((item) => {
+  //console.log(animals);
+  const slides = animal.thumbnails.map((thumbnail, index) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={index}
       >
-        <img src={"https:" + item.img} alt={item.altText} />
-        <CarouselCaption
+        <img src={"https:" + thumbnail.url} alt={thumbnail.title} />
+        {/* <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
-        />
+        /> */}
       </CarouselItem>
     );
   });
