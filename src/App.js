@@ -36,7 +36,6 @@ function App() {
           <div className="wrapper"></div>
           <span>Astonishing Animals</span>
           <AnimalsCarousel />
-          <YoutubeEmbed embedId="rokGy0huYEA" />
         </header>
         <main className="Animal">
           <div className="wrapper">
@@ -61,7 +60,7 @@ function App() {
                     toggle={toggle}
                   ></ModalHeader>
                   <ModalBody className="modal__body row">
-                    {show === "image" ? "" : ""}
+                    {show === "image" ? <AnimalsCarousel /> : ""}
                     {show === "video" ? <YoutubeEmbed /> : ""}
                   </ModalBody>
                   <ModalFooter>
