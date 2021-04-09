@@ -3,6 +3,7 @@ import { client } from "./client";
 import PropTypes from "prop-types";
 
 const getAnimal = (animal) => ({
+  id: animal.sys.id,
   name: animal.fields.name,
   latinName: animal.fields.latinName,
   thumbnails: animal.fields.thumbnails?.map((thumb) => ({
@@ -18,24 +19,11 @@ function useAnimals() {
 
   useEffect(() => {
     client.getEntries().then((response) => {
-      console.log(response.items);
+      //console.log(response.items);
       const newAnimals = response.items.map((item) => getAnimal(item));
       setAnimals(newAnimals);
     });
   }, []);
-
-  /* // 
-
-    //`string text ${expression} string text`
-    // animals[0].fields.image.fields.file.url
-    //images.ctfassets.net/utnfcxl3mjrn/50p1o2nZkNiQZYZGs1308H/48e8b02fa2c1f0391ac3c6f343a2c28c/276650b7-nutty-shopper-t-501069.jpg?w=300&h=300&hfit=fill
-    /*
-    const asset = client.getAsset('50p1o2nZkNiQZYZGs1308H')
-    .then((asset) => console.log(`${asset.fields.file.url}?w=300&h=300&fit=fill`))  ;  
-    
-    const asset2 = client.getAsset('50p1o2nZkNiQZYZGs1308H')
-    .then((asset) => console.log(`${asset.fields.file.url}?w=300&h=200&fit=crop`))  ;  
-*/
 
   return animals;
 }
