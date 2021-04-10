@@ -7,7 +7,7 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  ModalFooter,
 } from "reactstrap";
 import AnimalsCarousel from "./components/AnimalsCarousel";
 import "bootstrap/dist/css/bootstrap.css";
@@ -16,27 +16,34 @@ import useSelectedAnimal from "./useSelectedAnimal";
 
 function App() {
   const animals = useAnimals();
-  const [selectedAnimal, fetchAnimal] = useSelectedAnimal();
   const [modal, setModal] = useState(false);
+  // hook created to get the single animal data
+  const [selectedAnimal, fetchAnimal] = useSelectedAnimal();
+  // created two variabels to show corousel or video in the modal
   const [show, setShow] = useState(false);
   const [optionToShow, setOptionToShow] = useState(false);
-  //console.log(animals);
 
   const toggle = () => {
     setModal(!modal);
   };
 
+  // calling the fetchAnimal hook to get the single animal data
+  // option variable is passed to control what is needed to show depend of the clicked button
   const getSelectedAnimal = (id, option) => {
     fetchAnimal(id);
     setOptionToShow(option);
     toggle();
   };
 
+  // when the selectedAnimal is updated show the selected option (carousel or video)
+  // using useEffect hook to show the data after the response of the API (when the selectedAnimal variable change)
   useEffect(() => {
-    console.log(selectedAnimal.idVideo)
-    if (optionToShow === "carousel") setShow(<AnimalsCarousel animal={selectedAnimal} />);
-    if (optionToShow === "video") setShow(<YoutubeEmbed embedId={selectedAnimal.idVideo} />);
-  }, [selectedAnimal]);
+    console.log(selectedAnimal.idVideo);
+    if (optionToShow === "carousel")
+      setShow(<AnimalsCarousel animal={selectedAnimal} />);
+    if (optionToShow === "video")
+      setShow(<YoutubeEmbed embedId={selectedAnimal.idVideo} />);
+  }, [selectedAnimal]); // here is the control of the selectedAnimal variable
 
   return (
     <div className="App">
@@ -55,10 +62,16 @@ function App() {
                     <h2>{animal.latinName}</h2>
                     <img src={animal.img} alt={animal.title} />
                     <ButtonGroup>
-                      <Button onClick={() => getSelectedAnimal(animal.id, "carousel")}>
+                      <Button
+                        onClick={() => getSelectedAnimal(animal.id, "carousel")}
+                      >
                         Images
                       </Button>
-                      <Button onClick={() => getSelectedAnimal(animal.id, "video")}>Video</Button>
+                      <Button
+                        onClick={() => getSelectedAnimal(animal.id, "video")}
+                      >
+                        Video
+                      </Button>
                     </ButtonGroup>
                   </div>
                 );
@@ -69,10 +82,7 @@ function App() {
                     className="modal__header"
                     toggle={toggle}
                   ></ModalHeader>
-                  <ModalBody className="modal__body row">
-                    {show}
-                    {show === "video" ? <YoutubeEmbed /> : ""}
-                  </ModalBody>
+                  <ModalBody className="modal__body row">{show}</ModalBody>
                   <ModalFooter>
                     <Button color="secondary" onClick={toggle}>
                       Cancel
