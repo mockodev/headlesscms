@@ -1,29 +1,42 @@
 import "./App.css";
 import useAnimals from "./useAnimals";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   ButtonGroup,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
+  ModalFooter
 } from "reactstrap";
 import AnimalsCarousel from "./components/AnimalsCarousel";
 import "bootstrap/dist/css/bootstrap.css";
 import YoutubeEmbed from "./components/YoutubeEmbed";
+import useSelectedAnimal from "./useSelectedAnimal";
 
 function App() {
   const animals = useAnimals();
+  const [selectedAnimal, fetchAnimal] = useSelectedAnimal();
   const [modal, setModal] = useState(false);
+  const [show, setShow] = useState(false);
+  const [optionToShow, setOptionToShow] = useState(false);
   //console.log(animals);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal);
+  };
+
+  const getSelectedAnimal = (id, option) => {
+    fetchAnimal(id);
+    setOptionToShow(option);
+    toggle();
+  };
+
+  useEffect(() => {
+    console.log(selectedAnimal.idVideo)
+    if (optionToShow === "carousel") setShow(<AnimalsCarousel animal={selectedAnimal} />);
+    if (optionToShow === "video") setShow(<YoutubeEmbed embedId={selectedAnimal.idVideo} />);
+  }, [selectedAnimal]);
 
   return (
     <div className="App">
@@ -31,7 +44,6 @@ function App() {
         <header>
           <div className="wrapper"></div>
           <span>Astonishing Animals</span>
-          <YoutubeEmbed embedId="rokGy0huYEA" />
         </header>
         <main className="Animal">
           <div className="wrapper">
@@ -43,8 +55,10 @@ function App() {
                     <h2>{animal.latinName}</h2>
                     <img src={animal.img} alt={animal.title} />
                     <ButtonGroup>
-                      <Button onClick={toggle}>Images</Button>
-                      <Button>Video</Button>
+                      <Button onClick={() => getSelectedAnimal(animal.id, "carousel")}>
+                        Images
+                      </Button>
+                      <Button onClick={() => getSelectedAnimal(animal.id, "video")}>Video</Button>
                     </ButtonGroup>
                   </div>
                 );
@@ -56,7 +70,8 @@ function App() {
                     toggle={toggle}
                   ></ModalHeader>
                   <ModalBody className="modal__body row">
-                    
+                    {show}
+                    {show === "video" ? <YoutubeEmbed /> : ""}
                   </ModalBody>
                   <ModalFooter>
                     <Button color="secondary" onClick={toggle}>
