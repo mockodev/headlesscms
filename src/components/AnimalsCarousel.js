@@ -49,7 +49,7 @@ function AnimalsCarousel({ animal }) {
     setActiveIndex(newIndex);
   };
 
-  //console.log(animals);
+  //console.log("carousel: ", animal);
   const slides = animal.thumbnails.map((thumbnail, index) => {
     return (
       <CarouselItem
