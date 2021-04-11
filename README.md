@@ -1,3 +1,12 @@
+### Recet Activity
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
+
+
+
+
 # Our Project
 
 put something interesting in it
