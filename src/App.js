@@ -1,6 +1,6 @@
 import "./App.css";
 import useAnimals from "./useAnimals";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Button,
   ButtonGroup,
@@ -15,6 +15,7 @@ import YoutubeEmbed from "./components/YoutubeEmbed";
 import useSelectedAnimal from "./useSelectedAnimal";
 
 function App() {
+  // hook created to collect all the animals from the API
   const animals = useAnimals();
   const [selectedAnimal, fetchAnimal, isLoading] = useSelectedAnimal();
   const [modal, setModal] = useState(false);
@@ -26,7 +27,7 @@ function App() {
   };
 
   const getSelectedAnimal = (e) => {
-    const {id, contentType} = e.target.dataset;
+    const {id, contentType} = e.target.dataset; //convention in React? To clarify with Patrick
     fetchAnimal(id);
     setOptionToShow(contentType);
     toggle();
@@ -37,25 +38,6 @@ function App() {
     video: <YoutubeEmbed embedId={selectedAnimal.idVideo} />,
   }
 
-  /*
-  // calling the fetchAnimal hook to get the single animal data
-  // option variable is passed to control what is needed to show depend of the clicked button
-  const getSelectedAnimal = (id, option) => {
-    fetchAnimal(id);
-    setOptionToShow(option);
-    toggle();
-  };
-
-  // when the selectedAnimal is updated show the selected option (carousel or video)
-  // using useEffect hook to show the data after the response of the API (when the selectedAnimal variable change)
-  useEffect(() => {
-    console.log(selectedAnimal.idVideo);
-    if (optionToShow === "carousel")
-      setShow(<AnimalsCarousel animal={selectedAnimal} />);
-    if (optionToShow === "video")
-      setShow(<YoutubeEmbed embedId={selectedAnimal.idVideo} />);
-  }, [selectedAnimal]); // here is the control of the selectedAnimal variable
-*/
   return (
     <div className="App">
       <div className="container">
@@ -66,9 +48,9 @@ function App() {
         <main className="Animal">
           <div className="wrapper">
             <div className="AnimalList">
-              {animals.map((animal) => {
+              {animals.map((animal, index) => {
                 return (
-                  <div className="Animal">
+                  <div key={index} className="Animal">
                     <h3>{animal.name}</h3>
                     <h2>{animal.latinName}</h2>
                     <img src={animal.img} alt={animal.title} />

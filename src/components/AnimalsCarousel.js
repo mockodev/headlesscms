@@ -4,7 +4,6 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
 } from "reactstrap";
 
 function AnimalsCarousel({ animal }) {
@@ -50,7 +49,7 @@ function AnimalsCarousel({ animal }) {
   };
 
   //console.log("carousel: ", animal);
-  const slides = animal.thumbnails.map((thumbnail, index) => {
+  const slides = animal.thumbnails?.map((thumbnail, index) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
