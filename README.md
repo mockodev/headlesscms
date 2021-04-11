@@ -3,6 +3,10 @@
 
 ### Logo
 
+### Project Activity
+
+<!-- PROJECTS START -->
+<!-- PROJECTS END -->
 
 
 ### Description
