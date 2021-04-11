@@ -15,7 +15,7 @@ import YoutubeEmbed from "./components/YoutubeEmbed";
 import useSelectedAnimal from "./useSelectedAnimal";
 
 function App() {
-  // hook created to collect all the animals from the API
+  // hook created to collect all the animals from the API.
   const animals = useAnimals();
   const [selectedAnimal, fetchAnimal, isLoading] = useSelectedAnimal();
   const [modal, setModal] = useState(false);
