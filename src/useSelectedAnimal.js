@@ -6,7 +6,7 @@ const getAnimal = (animal) => ({
   name: animal.fields.name,
   latinName: animal.fields.latinName,
   thumbnails: animal.fields.thumbnails?.map((thumb) => ({
-    url: thumb.fields.file.url + "?h=300&fit=thumb",
+    url: thumb.fields.file.url,
     title: thumb.fields.title,
   })),
   img: animal.fields.image?.fields.file.url + "?w=400&h=300&fit=pad",

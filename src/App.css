@@ -1,3 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  color: #383e56;
+}
+
+/*.bg-primary {background: !important;}*/
+
+.App {
+  background: #9fb8ad; 
+}
+
+
+.modal-style {
+  height: 200px;
+  width: 200px;
+}
+
+
 .App {
   text-align: center;
 }
@@ -41,15 +63,106 @@
 
 .video-responsive {
   overflow: hidden;
-  padding-bottom: 56.25%;
-  /*position: relative;*/
-  height: 0;
+  width: 100%;  
 }
 
 .video-responsive iframe {
   left: 0;
   top: 0;
-  height: 100%;
+  height: 202px;
   width: 100%;
-  position: absolute;
+  position: relative;
 }
+
+.embed-responsive {
+  margin: 0 10px;
+}
+
+main {
+  padding: 0 2 rem;
+}
+
+.AnimalList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  min-width: 15rem;
+}
+
+.card-content-top {
+  height: 85%;
+}
+
+@media (max-width: 1200px) {
+  .AnimalList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 800px) {
+  .AnimalList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .AnimalList {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 
+.card {
+  cursor: pointer;
+  background-color: transparent;
+  perspective: 1000px;
+  min-width: ;
+}
+
+.card h1 {
+  font-size: 25px;
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+probe
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+.card li {
+  list-style: none;
+  padding-bottom: 10px;
+} */
+
