@@ -51,9 +51,6 @@ function App() {
     <div className="App bg-secondary">
       <header fluid>
         <img src={logo} alt="Absolut amazing animals" />
-        <span>
-          <h1>Absolute Amazing Animals</h1>
-        </span>
       </header>
       <main>
         <Container>
