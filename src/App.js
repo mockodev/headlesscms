@@ -6,12 +6,12 @@ import AnimalsList from "./components/AnimalsList";
 import logo from "./img/Absolute_amazing_animals.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import "./custom.scss";
+import "./scss/custom.scss";
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="App bg-secondary">
       <header fluid>
         <img src={logo} alt="Absolut amazing animals" />
       </header>

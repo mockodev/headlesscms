@@ -35,7 +35,7 @@ function AnimalsCarousel({ animal }) {
         onExited={() => setAnimating(false)}
         key={index}
       >
-        <img src={"https:" + thumbnail.url} alt={thumbnail.title} className="img-fluid"/>
+        <img src={"https:" + thumbnail.url} alt={thumbnail.title} className="img-fluid rounded-lg w-100"/>
         {/* <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}

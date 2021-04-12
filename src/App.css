@@ -4,15 +4,7 @@
   padding: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-  color: #383e56;
 }
-
-/*.bg-primary {background: !important;}*/
-
-.App {
-  background: #9fb8ad; 
-}
-
 
 .modal-style {
   height: 200px;
@@ -59,25 +51,6 @@
   }
 }
 
-/* Youtube Component */
-
-.video-responsive {
-  overflow: hidden;
-  width: 100%;  
-}
-
-.video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 202px;
-  width: 100%;
-  position: relative;
-}
-
-.embed-responsive {
-  margin: 0 10px;
-}
-
 main {
   padding: 0 2 rem;
 }
@@ -91,6 +64,32 @@ main {
 
 .card-content-top {
   height: 85%;
+}
+
+div.c-wrapper{
+  width: 80%; /* for example */
+  margin: auto;
+}
+
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img{
+width: 100%; /* use this, or not */
+margin: auto;
+}
+
+/* Youtube Component */
+
+.video-responsive {
+  overflow: hidden;
+  width: 100%;  
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 202px;
+  width: 100%;
+  position: relative;
 }
 
 @media (max-width: 1200px) {
