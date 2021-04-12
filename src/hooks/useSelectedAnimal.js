@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { client } from "./client";
+import {client}  from "../client";
 
 const getAnimal = (animal) => ({
   idVideo: animal.fields.video.fields.file.fileName.replace("watch?v=", "").replace("&feature=youtu.be",""),
