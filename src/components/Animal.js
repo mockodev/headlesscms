@@ -8,18 +8,19 @@ import {
 function Animal({animal, getSelectedAnimal}, key) {
 
   return (
-    <Card key={key} className="Animal shadow p-3 mb-5 bg-white rounded">
+    <Card key={key} className="Animal shadow p-3 mb-5 bg-primary rounded-lg">
       <CardBody>
         <div className="card-content-top">
-          <CardTitle tag="h3">{animal.name}</CardTitle>
+          <CardTitle tag="h3" className="text-third">{animal.name}</CardTitle>
           <CardImg bottom width="100%" src={animal.img} alt={animal.title} />
           {/* style={{fontSize: "24px"}} */}
-          <CardSubtitle tag="h6" className="mb-2 pt-3 text-danger ">
-            <i>{animal.latinName}</i>
+          <CardSubtitle tag="h6" className="mb-2 pt-3">
+            <i className="text-third">{animal.latinName}</i>
           </CardSubtitle>
         </div>
         <ButtonGroup>
           <Button
+          className="bg-third text-fourth"
             data-id={animal.id}
             data-content-type="carousel"
             onClick={getSelectedAnimal}
@@ -27,6 +28,7 @@ function Animal({animal, getSelectedAnimal}, key) {
             Images
           </Button>
           <Button
+          className="bg-third text-fourth"
             data-id={animal.id}
             data-content-type="video"
             onClick={getSelectedAnimal}

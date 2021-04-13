@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import Animal from "./Animal";
 import AnimalsCarousel from "./AnimalsCarousel";
 import YoutubeEmbed from "./YoutubeEmbed";
 import useSelectedAnimal from "../hooks/useSelectedAnimal";
 import useAnimals from "../hooks/useAnimals";
-
 
 function AnimalsList() {
   // hook created to collect all the animals from the API
@@ -20,7 +13,6 @@ function AnimalsList() {
   const [optionToShow, setOptionToShow] = useState("video");
   const animals = useAnimals();
   const [modal, setModal] = useState(false);
-
 
   const getSelectedAnimal = (e) => {
     const { id, contentType } = e.target.dataset; //convention in React? To clarify with Patrick
@@ -42,17 +34,32 @@ function AnimalsList() {
     <div className="AnimalsList mb-5">
       {animals.map((animal, index) => {
         return (
-          <Animal animal={animal} getSelectedAnimal={getSelectedAnimal} key={index} />
+          <Animal
+            animal={animal}
+            getSelectedAnimal={getSelectedAnimal}
+            key={index}
+          />
         );
       })}
 
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader className="modal__header" toggle={toggle}></ModalHeader>
-        <ModalBody className="modal__body row">
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        className="bg-primary rounded-lg modal-lg"
+      >
+        <ModalHeader
+          className="bg-primary bg-third rounded-top"
+          toggle={toggle}
+        ></ModalHeader>
+        <ModalBody className="bg-primary justify-content-center px-2">
           {!isLoading && modalContent[optionToShow]}
         </ModalBody>
-        <ModalFooter>
-          <Button color="secondary" onClick={toggle}>
+        <ModalFooter className="bg-primary">
+          <Button
+            color="secondary"
+            onClick={toggle}
+            className="bg-third text-fourth"
+          >
             Cancel
           </Button>
         </ModalFooter>
