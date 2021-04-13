@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/headlesscms/static/css/main.c35a1e8d.chunk.css",
+    "main.js": "/headlesscms/static/js/main.2369121b.chunk.js",
+    "main.js.map": "/headlesscms/static/js/main.2369121b.chunk.js.map",
+    "runtime-main.js": "/headlesscms/static/js/runtime-main.0dcb0268.js",
+    "runtime-main.js.map": "/headlesscms/static/js/runtime-main.0dcb0268.js.map",
+    "static/css/2.ef9168ec.chunk.css": "/headlesscms/static/css/2.ef9168ec.chunk.css",
+    "static/js/2.613de61b.chunk.js": "/headlesscms/static/js/2.613de61b.chunk.js",
+    "static/js/2.613de61b.chunk.js.map": "/headlesscms/static/js/2.613de61b.chunk.js.map",
+    "index.html": "/headlesscms/index.html",
+    "static/css/2.ef9168ec.chunk.css.map": "/headlesscms/static/css/2.ef9168ec.chunk.css.map",
+    "static/css/main.c35a1e8d.chunk.css.map": "/headlesscms/static/css/main.c35a1e8d.chunk.css.map",
+    "static/js/2.613de61b.chunk.js.LICENSE.txt": "/headlesscms/static/js/2.613de61b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0dcb0268.js",
+    "static/css/2.ef9168ec.chunk.css",
+    "static/js/2.613de61b.chunk.js",
+    "static/css/main.c35a1e8d.chunk.css",
+    "static/js/main.2369121b.chunk.js"
+  ]
+}
